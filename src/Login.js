@@ -71,14 +71,12 @@ export const Login = (props) => {
       ></TextInput>
       <Button title="Log in" onPress={onPressLogin}></Button>
       <TouchableOpacity onPress={onPressGoogle}>
-        <View style={{ marginTop: 25, backgroundColor: "white" }}>
-          <Image
-            style={styles.google_img}
-            source={{
-              uri: "https://www.oncrashreboot.com/images/create-apple-google-signin-buttons-quick-dirty-way-google.png",
-            }}
-          />
-        </View>
+        <Image
+          style={styles.google_img}
+          source={{
+            uri: "https://www.oncrashreboot.com/images/create-apple-google-signin-buttons-quick-dirty-way-google.png",
+          }}
+        />
       </TouchableOpacity>
     </View>
   );
@@ -139,5 +137,6 @@ const styles = StyleSheet.create({
     width: "100%",
     borderWidth: 2,
     borderColor: "dodgerblue",
+    marginTop: 25,
   },
 });
