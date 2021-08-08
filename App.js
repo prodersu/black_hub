@@ -2,6 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { Login } from "./src/Login";
+import { LoginTabs } from "./src/LoginTabs";
 import { Navbar } from "./src/Navbar";
 
 export default function App() {
@@ -10,7 +11,7 @@ export default function App() {
       <StatusBar hidden={true} />
       <View style={styles.container}>
         <Navbar />
-        <Login />
+        <LoginTabs />
       </View>
     </View>
   );

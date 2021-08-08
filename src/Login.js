@@ -1,14 +1,13 @@
-import { black } from "ansi-colors";
 import React, { useState } from "react";
 import {
   Button,
   StyleSheet,
   TextInput,
   View,
-  Text,
   Alert,
   Image,
   TouchableOpacity,
+  Vibration,
 } from "react-native";
 
 export const Login = (props) => {
@@ -22,6 +21,8 @@ export const Login = (props) => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isFocusedEmail, setIsFocusedEmail] = useState(false);
+  const [isFocusedPassword, setIsFocusedPassword] = useState(false);
 
   const onPressLogin = () => {
     setEmail(email.trim());
@@ -43,33 +44,38 @@ export const Login = (props) => {
     }
   };
 
+  const Separator = () => {
+    return <View style={Platform.OS === "android" ? styles.separator : null} />;
+  };
   return (
     <View style={styles.block}>
-      <View style={styles.tabs}>
-        <View>
-          <Text style={styles.text_1}>Sign in</Text>
-        </View>
-        <TouchableOpacity onPress={onPressRegister}>
-          <View>
-            <Text style={styles.text_2}>Register</Text>
-          </View>
-        </TouchableOpacity>
-      </View>
       <TextInput
-        style={styles.input}
+        onFocus={() => {
+          setIsFocusedEmail(true);
+        }}
+        onBlur={() => {
+          setIsFocusedEmail(false);
+        }}
+        style={isFocusedEmail ? styles.input_focused : styles.input}
         placeholder="Email"
         keyboardType="email-address"
         value={email}
         onChangeText={setEmail}
       ></TextInput>
       <TextInput
-        style={styles.input}
+        onFocus={() => {
+          setIsFocusedPassword(true);
+        }}
+        onBlur={() => {
+          setIsFocusedPassword(false);
+        }}
+        style={isFocusedPassword ? styles.input_focused : styles.input}
         placeholder="Password"
         secureTextEntry={true}
         value={password}
         onChangeText={setPassword}
       ></TextInput>
-      <Button title="Log in" onPress={onPressLogin}></Button>
+      <Button title="Log in" onPress={onPressLogin} />
       <TouchableOpacity onPress={onPressGoogle}>
         <Image
           style={styles.google_img}
@@ -103,34 +109,29 @@ const styles = StyleSheet.create({
     height: "100%",
     paddingHorizontal: 20,
     paddingTop: 50,
+    backgroundColor: "white",
   },
   input: {
     fontSize: 20,
+    marginBottom: 25,
+    backgroundColor: "ghostwhite",
+    padding: 10,
+    borderRadius: 5,
+    textAlign: "center",
+    borderStyle: "solid",
+    borderBottomWidth: 2,
+    borderBottomColor: "ghostwhite",
+  },
+  input_focused: {
+    fontSize: 20,
+    marginBottom: 25,
+    backgroundColor: "ghostwhite",
+    padding: 10,
+    borderRadius: 5,
+    textAlign: "center",
     borderStyle: "solid",
     borderBottomWidth: 2,
     borderBottomColor: "blue",
-    marginBottom: 25,
-    backgroundColor: "ghostwhite",
-    padding: 5,
-    borderRadius: 5,
-  },
-  tabs: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-    marginBottom: 30,
-  },
-  text_1: {
-    fontSize: 23,
-    borderRightWidth: 2,
-    borderRightColor: "black",
-    fontWeight: "bold",
-    paddingHorizontal: 15,
-  },
-  text_2: {
-    fontSize: 21,
-    paddingHorizontal: 15,
-    backgroundColor: "white",
   },
   google_img: {
     height: 40,
@@ -138,5 +139,10 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: "dodgerblue",
     marginTop: 25,
+  },
+  separator: {
+    marginVertical: 8,
+    borderBottomColor: "#737373",
+    borderBottomWidth: StyleSheet.hairlineWidth,
   },
 });
