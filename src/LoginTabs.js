@@ -31,11 +31,11 @@ export const LoginTabs = (props) => {
           component={Register}
           options={{ tabBarLabel: "Register" }}
         />
-        {/* <Tab.Screen
+        <Tab.Screen
           name="Vibrators"
           component={Vibrators}
           options={{ tabBarLabel: "Vibrators" }}
-        /> */}
+        />
       </Tab.Navigator>
     </NavigationContainer>
   );
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
   },
   tabs: {
     height: 50,
-    width: "65%",
+    width: "100%",
     justifyContent: "center",
     alignSelf: "center",
     elevation: 0,
