@@ -3,7 +3,7 @@ import { Button, View, Vibration, StyleSheet } from "react-native";
 
 export const Vibrators = (props) => {
   const Separator = () => {
-    return <View style={Platform.OS === "android" ? styles.separator : null} />;
+    return <View style={styles.separator} />;
   };
   return (
     <View>
