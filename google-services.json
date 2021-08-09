@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "729352914829",
+    "project_id": "black-hub",
+    "storage_bucket": "black-hub.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:729352914829:android:9ecfe9f14385934ba9dfc4",
+        "android_client_info": {
+          "package_name": "com.erlan.blackhub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "729352914829-5j3adi2id2of38hp3i53ttlla91kvbje.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZkUJWhWrw7HZoKBUCtaaPXh4yhzHAMuc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "729352914829-5j3adi2id2of38hp3i53ttlla91kvbje.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
