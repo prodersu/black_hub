@@ -27,19 +27,18 @@ export const Register = (props) => {
   const onPressRegister = () => {
     setEmail(email.trim());
     setPassword(password.trim());
-    if (!email || !password) {
-      Alert.alert("Email and password cannot to be empty");
-    }
-    if (checkPassword() && validateEmail()) {
-      Alert.alert(email + "   " + password);
-      const userData = { email, password };
+    if (checkPassword() && validateEmail() && birthdate && nickname) {
+      Alert.alert(nickname + "  " + email + "   " + password);
+      const userData = { nickname, email, password, birthdate };
       setPassword("");
       setEmail("");
-    }
-    if (!checkPassword()) {
+      setNickname("");
+      setBirthdate(undefined);
+    } else if (!email || !password || !nickname || !birthdate) {
+      Alert.alert("All forms must be filled");
+    } else if (!checkPassword()) {
       Alert.alert("Incorrect password");
-    }
-    if (!validateEmail()) {
+    } else if (!validateEmail()) {
       Alert.alert("Incorrect email address");
     }
   };
@@ -57,7 +56,7 @@ export const Register = (props) => {
         placeholder="Nickname"
         value={nickname}
         onChangeText={setNickname}
-        maxLength={10}
+        maxLength={15}
       ></TextInput>
       <TextInput
         onFocus={() => {
@@ -71,7 +70,7 @@ export const Register = (props) => {
         keyboardType="email-address"
         value={email}
         onChangeText={setEmail}
-        maxLength={20}
+        maxLength={30}
       ></TextInput>
       <TextInput
         onFocus={() => {

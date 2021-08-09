@@ -22,19 +22,16 @@ export const Login = (props) => {
   const onPressLogin = () => {
     setEmail(email.trim());
     setPassword(password.trim());
-    if (!email || !password) {
-      Alert.alert("Email and password cannot to be empty");
-    }
     if (checkPassword() && validateEmail()) {
       Alert.alert(email + "   " + password);
       const userData = { email, password };
       setPassword("");
       setEmail("");
-    }
-    if (!checkPassword()) {
+    } else if (!email || !password) {
+      Alert.alert("Email and password cannot to be empty");
+    } else if (!checkPassword()) {
       Alert.alert("Incorrect password");
-    }
-    if (!validateEmail()) {
+    } else if (!validateEmail()) {
       Alert.alert("Incorrect email address");
     }
   };
@@ -53,7 +50,7 @@ export const Login = (props) => {
         keyboardType="email-address"
         value={email}
         onChangeText={setEmail}
-        maxLength={20}
+        maxLength={30}
       ></TextInput>
       <TextInput
         onFocus={() => {
