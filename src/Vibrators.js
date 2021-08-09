@@ -5,9 +5,9 @@ export const Vibrators = (props) => {
   const Separator = () => {
     return <View style={styles.separator} />;
   };
+
   return (
     <View>
-      <Separator />
       <Button
         title="Turn on Vibrator"
         color="red"
@@ -15,7 +15,7 @@ export const Vibrators = (props) => {
           Vibration.vibrate([2 * 1000, 20 * 1000, 2 * 1000, 20 * 1000], true)
         }
       />
-      <Separator />
+
       <Button
         title="Vibrate with patterns"
         color="magenta"
@@ -23,7 +23,7 @@ export const Vibrators = (props) => {
           Vibration.vibrate([1 * 1000, 2 * 1000, 3 * 1000, 4 * 1000], true)
         }
       />
-      <Separator />
+
       <Button
         title="Stop vibrating"
         onPress={() => Vibration.cancel()}
