@@ -7,16 +7,11 @@ import {
   Alert,
   Image,
   TouchableOpacity,
-  Vibration,
 } from "react-native";
 
 export const Login = (props) => {
-  const onPressRegister = () => {
-    Alert.alert("Register Page is not ready yet!");
-  };
-
   const onPressGoogle = () => {
-    Alert.alert("Sign in with Google is comig soon!");
+    Alert.alert("Sign in with Google is coming soon!");
   };
 
   const [email, setEmail] = useState("");
@@ -44,9 +39,6 @@ export const Login = (props) => {
     }
   };
 
-  const Separator = () => {
-    return <View style={Platform.OS === "android" ? styles.separator : null} />;
-  };
   return (
     <View style={styles.block}>
       <TextInput
@@ -61,6 +53,7 @@ export const Login = (props) => {
         keyboardType="email-address"
         value={email}
         onChangeText={setEmail}
+        maxLength={20}
       ></TextInput>
       <TextInput
         onFocus={() => {
@@ -74,14 +67,13 @@ export const Login = (props) => {
         secureTextEntry={true}
         value={password}
         onChangeText={setPassword}
+        maxLength={20}
       ></TextInput>
       <Button title="Log in" onPress={onPressLogin} />
-      <TouchableOpacity onPress={onPressGoogle}>
+      <TouchableOpacity onPress={onPressGoogle} activeOpacity={0.8}>
         <Image
           style={styles.google_img}
-          source={{
-            uri: "https://www.oncrashreboot.com/images/create-apple-google-signin-buttons-quick-dirty-way-google.png",
-          }}
+          source={require("./images/sign_in_google.png")}
         />
       </TouchableOpacity>
     </View>
@@ -134,15 +126,9 @@ const styles = StyleSheet.create({
     borderBottomColor: "blue",
   },
   google_img: {
-    height: 40,
+    height: 70,
     width: "100%",
-    borderWidth: 2,
-    borderColor: "dodgerblue",
     marginTop: 25,
-  },
-  separator: {
-    marginVertical: 8,
-    borderBottomColor: "#737373",
-    borderBottomWidth: StyleSheet.hairlineWidth,
+    resizeMode: "stretch",
   },
 });
