@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:729352914829:android:9ecfe9f14385934ba9dfc4",
+        "mobilesdk_app_id": "1:729352914829:android:73598a0bc23141b7a9dfc4",
         "android_client_info": {
-          "package_name": "com.erlan.blackhub"
+          "package_name": "kz.black.hub"
         }
       },
       "oauth_client": [

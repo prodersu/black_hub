@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import auth from "@react-native-firebase/auth";
 import { AuthContext } from "./AuthProvider";
 import { NavigationContainer } from "@react-navigation/native";
 import AppTabs from "./AppTabs";
 import AuthTabs from "./AuthTabs";
+import { StatusBar } from "expo-status-bar";
+import { Text, View } from "react-native";
 
 const Routes = () => {
   const { user, setUser } = useContext(AuthContext);
@@ -19,10 +21,16 @@ const Routes = () => {
     return subscriber;
   }, []);
 
-  if (initializing) return null;
+  if (initializing)
+    return (
+      <View style={{ justifyContent: "center", alignItems: "center" }}>
+        <Text>Initializing</Text>
+      </View>
+    );
 
   return (
     <NavigationContainer>
+      <StatusBar hidden={true} />
       {user ? <AppTabs /> : <AuthTabs />}
     </NavigationContainer>
   );

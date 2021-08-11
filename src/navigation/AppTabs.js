@@ -10,34 +10,32 @@ const Tab = createMaterialTopTabNavigator();
 
 const AppTabs = (props) => {
   return (
-    <NavigationContainer>
-      <Tab.Navigator
-        initialRouteName="Profile"
-        screenOptions={{
-          tabBarActiveTintColor: "black",
-          tabBarLabelStyle: styles.tabLabel,
-          tabBarIndicatorStyle: styles.indicator,
-          tabBarStyle: styles.tabs,
-          tabBarShowLabel: true,
-        }}
-      >
-        <Tab.Screen
-          name="Feed"
-          component={FeedPage}
-          options={{ tabBarLabel: "Feed" }}
-        />
-        <Tab.Screen
-          name="Profile"
-          component={ProfilePage}
-          options={{ tabBarLabel: "Profile" }}
-        />
-        <Tab.Screen
-          name="Vibrators"
-          component={Vibrators}
-          options={{ tabBarLabel: "Vibrators" }}
-        />
-      </Tab.Navigator>
-    </NavigationContainer>
+    <Tab.Navigator
+      initialRouteName="Profile"
+      screenOptions={{
+        tabBarActiveTintColor: "black",
+        tabBarLabelStyle: styles.tabLabel,
+        tabBarIndicatorStyle: styles.indicator,
+        tabBarStyle: styles.tabs,
+        tabBarShowLabel: true,
+      }}
+    >
+      <Tab.Screen
+        name="Feed"
+        component={FeedPage}
+        options={{ tabBarLabel: "Feed" }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={ProfilePage}
+        options={{ tabBarLabel: "Profile" }}
+      />
+      <Tab.Screen
+        name="Vibrators"
+        component={Vibrators}
+        options={{ tabBarLabel: "Vibrators" }}
+      />
+    </Tab.Navigator>
   );
 };
 

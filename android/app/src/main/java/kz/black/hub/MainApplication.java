@@ -19,6 +19,7 @@ import org.unimodules.adapters.react.ReactModuleRegistryProvider;
 import org.unimodules.core.interfaces.Package;
 import org.unimodules.core.interfaces.SingletonModule;
 import expo.modules.updates.UpdatesController;
+import io.invertase.firebase.app.ReactNativeFirebaseAppPackage;
 
 import com.facebook.react.bridge.JSIModulePackage;
 import com.swmansion.reanimated.ReanimatedJSIModulePackage;

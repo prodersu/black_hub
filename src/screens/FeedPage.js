@@ -10,6 +10,7 @@ export const FeedPage = () => {
 };
 const styles = StyleSheet.create({
   container: {
+    height: "100%",
     backgroundColor: "white",
     alignItems: "center",
     justifyContent: "center",

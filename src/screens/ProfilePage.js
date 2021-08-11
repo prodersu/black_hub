@@ -1,5 +1,5 @@
-import React from "react";
-import { Button, View } from "react-native";
+import React, { useContext } from "react";
+import { Button, View, StyleSheet, Text } from "react-native";
 import { AuthContext } from "../navigation/AuthProvider";
 
 export const ProfilePage = () => {
@@ -14,6 +14,7 @@ export const ProfilePage = () => {
 };
 const styles = StyleSheet.create({
   container: {
+    height: "100%",
     backgroundColor: "white",
     alignItems: "center",
     justifyContent: "center",

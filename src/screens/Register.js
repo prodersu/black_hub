@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   Button,
   StyleSheet,
@@ -10,11 +10,14 @@ import {
   Text,
 } from "react-native";
 import DatePicker from "@dietime/react-native-date-picker";
+import { AuthContext } from "../navigation/AuthProvider";
 
 export const Register = (props) => {
   const onPressGoogle = () => {
     Alert.alert("Sign up with Google is coming soon!");
   };
+
+  const { register } = useContext(AuthContext);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -28,8 +31,7 @@ export const Register = (props) => {
     setEmail(email.trim());
     setPassword(password.trim());
     if (checkPassword() && validateEmail() && birthdate && nickname) {
-      Alert.alert(nickname + "  " + email + "   " + password);
-      const userData = { nickname, email, password, birthdate };
+      register(email, password);
       setPassword("");
       setEmail("");
       setNickname("");
