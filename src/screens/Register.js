@@ -101,7 +101,7 @@ export const Register = (props) => {
       <TouchableOpacity onPress={onPressGoogle}>
         <Image
           style={styles.google_img}
-          source={require("./images/signupGoogle.png")}
+          source={require("./../images/signupGoogle.png")}
         />
       </TouchableOpacity>
     </View>

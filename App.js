@@ -1,24 +1,8 @@
-import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
-import { Login } from "./src/Login";
-import { LoginTabs } from "./src/LoginTabs";
-import { Navbar } from "./src/Navbar";
+import Providers from "./src/navigation";
 
-export default function App() {
-  return (
-    <View>
-      <StatusBar hidden={true} />
-      <View style={styles.container}>
-        <Navbar />
-        <LoginTabs />
-      </View>
-    </View>
-  );
-}
+const App = () => {
+  return <Providers />;
+};
 
-const styles = StyleSheet.create({
-  container: {
-    height: "100%",
-  },
-});
+export default App;

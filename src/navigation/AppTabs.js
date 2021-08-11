@@ -1,18 +1,18 @@
 import React from "react";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import { NavigationContainer } from "@react-navigation/native";
-import { Login } from "./Login";
-import { Register } from "./Register";
+import { FeedPage } from "../screens/FeedPage";
+import { ProfilePage } from "../screens/ProfilePage";
 import { StyleSheet } from "react-native";
-import { Vibrators } from "./Vibrators";
+import { Vibrators } from "../screens/Vibrators";
 
 const Tab = createMaterialTopTabNavigator();
 
-export const LoginTabs = (props) => {
+const AppTabs = (props) => {
   return (
     <NavigationContainer>
       <Tab.Navigator
-        initialRouteName="Login"
+        initialRouteName="Profile"
         screenOptions={{
           tabBarActiveTintColor: "black",
           tabBarLabelStyle: styles.tabLabel,
@@ -22,20 +22,20 @@ export const LoginTabs = (props) => {
         }}
       >
         <Tab.Screen
-          name="Login"
-          component={Login}
-          options={{ tabBarLabel: "Sign in" }}
+          name="Feed"
+          component={FeedPage}
+          options={{ tabBarLabel: "Feed" }}
         />
         <Tab.Screen
-          name="Register"
-          component={Register}
-          options={{ tabBarLabel: "Register" }}
+          name="Profile"
+          component={ProfilePage}
+          options={{ tabBarLabel: "Profile" }}
         />
-        {/* <Tab.Screen
+        <Tab.Screen
           name="Vibrators"
           component={Vibrators}
           options={{ tabBarLabel: "Vibrators" }}
-        /> */}
+        />
       </Tab.Navigator>
     </NavigationContainer>
   );
@@ -58,3 +58,5 @@ const styles = StyleSheet.create({
     elevation: 0,
   },
 });
+
+export default AppTabs;

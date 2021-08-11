@@ -8,6 +8,7 @@ import {
   Image,
   TouchableOpacity,
 } from "react-native";
+import { AuthContext } from "../navigation/AuthProvider";
 
 export const Login = (props) => {
   const onPressGoogle = () => {
@@ -19,12 +20,13 @@ export const Login = (props) => {
   const [isFocusedEmail, setIsFocusedEmail] = useState(false);
   const [isFocusedPassword, setIsFocusedPassword] = useState(false);
 
+  const { login } = useContext(AuthContext);
+
   const onPressLogin = () => {
     setEmail(email.trim());
     setPassword(password.trim());
     if (checkPassword() && validateEmail()) {
-      Alert.alert(email + "   " + password);
-      const userData = { email, password };
+      login(email, password);
       setPassword("");
       setEmail("");
     } else if (!email || !password) {
@@ -70,7 +72,7 @@ export const Login = (props) => {
       <TouchableOpacity onPress={onPressGoogle} activeOpacity={0.8}>
         <Image
           style={styles.google_img}
-          source={require("./images/sign_in_google.png")}
+          source={require("./../images/sign_in_google.png")}
         />
       </TouchableOpacity>
     </View>
