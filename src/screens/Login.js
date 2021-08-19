@@ -7,20 +7,17 @@ import {
   Alert,
   Image,
   TouchableOpacity,
+  Text,
 } from "react-native";
 import { AuthContext } from "../navigation/AuthProvider";
 
 export const Login = (props) => {
-  const onPressGoogle = () => {
-    Alert.alert("Sign in with Google is coming soon!");
-  };
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isFocusedEmail, setIsFocusedEmail] = useState(false);
   const [isFocusedPassword, setIsFocusedPassword] = useState(false);
 
-  const { login } = useContext(AuthContext);
+  const { login, googleLogin } = useContext(AuthContext);
 
   const onPressLogin = () => {
     setEmail(email.trim());
@@ -69,12 +66,13 @@ export const Login = (props) => {
         maxLength={20}
       ></TextInput>
       <Button title="Log in" onPress={onPressLogin} />
-      <TouchableOpacity onPress={onPressGoogle} activeOpacity={0.8}>
+      <TouchableOpacity onPress={() => googleLogin()} activeOpacity={0.8}>
         <Image
           style={styles.google_img}
           source={require("./../images/sign_in_google.png")}
         />
       </TouchableOpacity>
+      <Text style={styles.footer}>by Dersu</Text>
     </View>
   );
 
@@ -129,5 +127,9 @@ const styles = StyleSheet.create({
     width: "100%",
     marginTop: 25,
     resizeMode: "stretch",
+  },
+  footer: {
+    marginTop: "90%",
+    marginStart: "80%",
   },
 });

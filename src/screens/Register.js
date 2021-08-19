@@ -13,16 +13,11 @@ import DatePicker from "@dietime/react-native-date-picker";
 import { AuthContext } from "../navigation/AuthProvider";
 
 export const Register = (props) => {
-  const onPressGoogle = () => {
-    Alert.alert("Sign up with Google is coming soon!");
-  };
-
-  const { register } = useContext(AuthContext);
+  const { register, googleLogin } = useContext(AuthContext);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [nickname, setNickname] = useState("");
-  const [birthdate, setBirthdate] = useState();
   const [isFocusedEmail, setIsFocusedEmail] = useState(false);
   const [isFocusedPassword, setIsFocusedPassword] = useState(false);
   const [isFocusedNickname, setIsFocusedNickname] = useState(false);
@@ -30,13 +25,12 @@ export const Register = (props) => {
   const onPressRegister = () => {
     setEmail(email.trim());
     setPassword(password.trim());
-    if (checkPassword() && validateEmail() && birthdate && nickname) {
+    if (checkPassword() && validateEmail() && nickname) {
       register(email, password);
       setPassword("");
       setEmail("");
       setNickname("");
-      setBirthdate(undefined);
-    } else if (!email || !password || !nickname || !birthdate) {
+    } else if (!email || !password || !nickname) {
       Alert.alert("All forms must be filled");
     } else if (!checkPassword()) {
       Alert.alert("Incorrect password");
@@ -88,19 +82,8 @@ export const Register = (props) => {
         onChangeText={setPassword}
         maxLength={20}
       ></TextInput>
-      <DatePicker
-        value={birthdate}
-        onChange={(value) => setBirthdate(value)}
-        height={130}
-        markHeight={30}
-        startYear={1930}
-        endYear={2021}
-      />
-      <Text style={styles.birth_text}>
-        {birthdate ? birthdate.toDateString() : "<Date of Birth>"}
-      </Text>
       <Button title="Register" onPress={onPressRegister} />
-      <TouchableOpacity onPress={onPressGoogle}>
+      <TouchableOpacity onPress={() => googleLogin()}>
         <Image
           style={styles.google_img}
           source={require("./../images/signupGoogle.png")}
@@ -156,7 +139,7 @@ const styles = StyleSheet.create({
     borderBottomColor: "blue",
   },
   google_img: {
-    height: 55,
+    height: 60,
     width: "100%",
     marginTop: 10,
     resizeMode: "stretch",

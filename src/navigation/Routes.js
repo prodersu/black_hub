@@ -21,12 +21,7 @@ const Routes = () => {
     return subscriber;
   }, []);
 
-  if (initializing)
-    return (
-      <View style={{ justifyContent: "center", alignItems: "center" }}>
-        <Text>Initializing</Text>
-      </View>
-    );
+  if (initializing) return null;
 
   return (
     <NavigationContainer>

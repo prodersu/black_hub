@@ -1,12 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import { Login } from "../screens/Login";
 import { Register } from "../screens/Register";
 import { StyleSheet } from "react-native";
+import { GoogleSignin } from "@react-native-google-signin/google-signin";
+import auth from "@react-native-firebase/auth";
 
 const Tab = createMaterialTopTabNavigator();
 
 const AuthTabs = (props) => {
+  useEffect(() => {
+    GoogleSignin.configure({
+      webClientId:
+        "729352914829-5j3adi2id2of38hp3i53ttlla91kvbje.apps.googleusercontent.com",
+    });
+  }, []);
+
   return (
     <Tab.Navigator
       initialRouteName="Login"

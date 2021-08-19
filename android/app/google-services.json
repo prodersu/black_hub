@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "729352914829-ol22i441e9hammqrc6c9490gh8bonthm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "kz.black.hub",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
           "client_id": "729352914829-5j3adi2id2of38hp3i53ttlla91kvbje.apps.googleusercontent.com",
           "client_type": 3
         }
